@@ -1,3 +1,5 @@
+<img width="679" alt="plog_erd" src="https://github.com/christopher3810/plog_repo/assets/61622657/9707f5bf-1470-4c19-a779-1d4089b1a3a1"></img>
+
 # plog_repo
 private for public 
 
