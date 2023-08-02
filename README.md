@@ -1,12 +1,6 @@
 # plog_repo
 private for public 
 
-GitHub stars
-GitHub forks
-GitHub issues
-GitHub pull requests
-GitHub
-
 ### 주요 기능
 
 1. 글 작성 및 조회
@@ -27,21 +21,39 @@ GitHub
 **함수 종속성(Functional Dependencies, FDs)**
 
 FD1: User -> {Username, Email, Password, Nickname, ProfilePicture, GithubLink, SnsLink, BlogLink}
+
 FD2: Post -> {UserID, TopicID, Title, ContentID, CreatedAt, UpdatedAt}
+
 FD3: Comment -> {UserID, PostID, Content, CreatedAt, UpdatedAt, Likes}
+
 FD4: Topic -> {Name}
+
 FD5: Tag -> {Name}
+
 FD6: PostTag -> {PostID, TagID}
+
 FD7: Content -> {PostID, TextData}
+
 FD8: Attachment -> {PostID, AttachmentData}
 
 **클로저(Closure)**
 
 User+ = {User, Username, Email, Password, Nickname, ProfilePicture, GithubLink, SnsLink, BlogLink}
+
 Post+ = {Post, UserID, TopicID, Title, ContentID, CreatedAt, UpdatedAt}
+
 Comment+ = {Comment, UserID, PostID, Content, CreatedAt, UpdatedAt, Likes}
+
 Topic+ = {Topic, Name}
+
 Tag+ = {Tag, Name}
+
 PostTag+ = {PostTag, PostID, TagID}
+
 Content+ = {Content, PostID, TextData}
+
 Attachment+ = {Attachment, PostID, AttachmentData}
+
+**ERD**
+
+<img width="679" alt="plog_erd" src="https://github.com/christopher3810/plog_repo/assets/61622657/e3d05b3f-d962-4497-9091-5ac5776dfab1">
