@@ -2,9 +2,11 @@
   <img width="300" alt="plog_erd" src="https://github.com/christopher3810/plog_repo/assets/61622657/9707f5bf-1470-4c19-a779-1d4089b1a3a1">
 </p>
 
+![GitHub stars](https://img.shields.io/github/stars/christopher3810/plog_repo?style=social) ![GitHub issues](https://img.shields.io/github/issues/christopher3810/plog_repo) ![GitHub pull requests](https://img.shields.io/github/issues-pr/christopher3810/plog_repo) ![GitHub](https://img.shields.io/github/license/christopher3810/plog_repo)
+
 
 # plog_repo
-private for public 
+>private for public 
 
 ### 주요 기능
 
