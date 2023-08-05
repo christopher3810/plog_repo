@@ -34,4 +34,4 @@
 
 ### 데이터 베이스 설계
 ---
-![데이터 베이스 설계](https://github.com/christopher3810/plog_repo/blob/master/DATABASE_DESIGN.md)
+[데이터 베이스 설계](https://github.com/christopher3810/plog_repo/blob/master/DATABASE_DESIGN.md)
