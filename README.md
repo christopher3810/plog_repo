@@ -192,14 +192,22 @@ erDiagram
     friendly_groups ||--o{ group_post_visibility : "group_id"
 ```
 
-**릴8레이션 설명**
+**릴레이션 설명**
 
 `Users Table` : 사용자의 기본 정보 및 소셜 링크와 함께 로그인 유형을 저장합니다.
+
 `Posts Table` : 게시물의 메타데이터와 함께 게시물의 가시성(예: 공개, 개인 또는 그룹) 정보를 저장합니다.
+
 `Topics Table `: 게시물의 주제를 분류하는 데 사용됩니다.
+
 `Tags & PostTags Tables` : 게시물에 태그를 부여하며, PostTags는 게시물과 태그 간의 다대다 관계를 구현합니다.
+
 `Comments Table` : 게시물에 대한 댓글 정보를 저장합니다.
+
 `Contents & Attachments Tables` : 게시물의 본문과 관련 첨부 파일을 저장합니다.
+
 `Emoji_Reactions Table` : 게시물에 대한 이모티콘 반응을 저장합니다.
+
 `Friendly_Groups & GroupMembers Tables` : 사용자가 속한 그룹과 그룹의 멤버를 관리합니다.
+
 `GroupPostVisibility Table` : 그룹에게만 표시되는 게시물을 관리합니다.
