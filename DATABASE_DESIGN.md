@@ -182,6 +182,32 @@ erDiagram
 `GroupPostVisibility Table` : 그룹에게만 표시되는 게시물을 관리합니다.
 
 
+### 인덱싱
+
+|테이블 이름|인덱스 컬럼|이유|
+|---|---|---|
+|Users|id|사용자의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|Users|email|로그인, 회원가입, 사용자 검색 등에서 이메일로 사용자를 빠르게 찾기 위해|
+|Users|username|사용자 이름으로 사용자를 빠르게 찾기 위해|
+|Posts|id|게시물의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|Posts|user_id|특정 사용자가 작성한 게시물을 검색할 때 빠르게 찾기 위해|
+|Posts|topic_id|특정 주제에 대한 게시물을 검색할 때 빠르게 찾기 위해|
+|Comments|id|댓글의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|Comments|post_id|특정 게시물에 연관된 댓글을 빠르게 찾기 위해|
+|Comments|user_id|특정 사용자가 작성한 댓글을 빠르게 찾기 위해|
+|Topics|id|주제의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|Tags|id|태그의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|PostTags|post_id|특정 게시물에 연결된 태그를 빠르게 찾기 위해|
+|PostTags|tag_id|특정 태그에 연결된 게시물을 빠르게 찾기 위해|
+|Emoji_Reactions|post_id|특정 게시물에 대한 이모티콘 반응을 빠르게 찾기 위해|
+|Emoji_Reactions|user_id|특정 사용자가 남긴 이모티콘 반응을 빠르게 찾기 위해|
+|Friendly_Groups|id|그룹의 기본 키로서 데이터를 빠르게 참조하기 위해|
+|Friendly_Groups|creator_user_id|특정 사용자가 생성한 그룹을 빠르게 찾기 위해|
+|GroupMembers|group_id|특정 그룹의 멤버를 빠르게 찾기 위해|
+|GroupMembers|member_user_id|어떤 그룹에 속해 있는지 특정 사용자를 빠르게 찾기 위해|
+|GroupPostVisibility|post_id|특정 게시물의 그룹 가시성을 빠르게 확인하기 위해|
+|GroupPostVisibility|group_id|특정 그룹에 표시되는 게시물을 빠르게 찾기 위해|
+
 ### Redis를 활용한 효율성 확보
 
 `User`
@@ -205,6 +231,6 @@ erDiagram
 
 탈퇴한 사용자의 데이터 처리 메커니즘
 
-is_active 플래그를 사용하여 먼저 데이터를 UI에서 숨긴 후, 나중에 Spring Batch와 같은 배치 처리 시스템을 사용하여 정기적으로 비활성화된 데이터를 삭제. 
+is_deleted 플래그를 사용하여 먼저 데이터를 UI에서 숨긴 후, 나중에 Spring Batch와 같은 배치 처리 시스템을 사용하여 정기적으로 비활성화된 데이터를 삭제. 
 
 실시간 서비스의 성능 저하 없이 큰 양의 데이터를 안전하게 삭제할 수 있어보임.
