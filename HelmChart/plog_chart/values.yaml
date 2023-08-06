@@ -5,7 +5,7 @@ image:
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 #private Docker registry에서 이미지를 가져오는데 사용할 secret의 목록.
 imagePullSecrets: []
