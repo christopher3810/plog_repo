@@ -64,22 +64,13 @@ ingress:
 ```
 이미 활성화는 해두었습니다.
 
-4. 호스트 파일 설정
-
-minikube ip 명령을 실행하여 Minikube 클러스터의 IP 주소를 얻습니다
-
-```bash
-minikube ip
-```
-
-5.Dns 설정
-3번에서의 
+4.local dns에 plog.ingress를 dns 설정.
 
 ```yaml
 hosts:
     - host: plog.ingress
 ```
-6. local dns에 plog.ingress를 dns 설정해줘야 합니다.
+3 번에서의 host 정보를 가져와서 minikube ip와 dns 매핑을 해줍니다.
 
 ```bash
 echo "$(minikube ip) plog.local" | sudo tee -a /etc/hosts
