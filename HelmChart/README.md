@@ -34,7 +34,15 @@ Helm 차트의 버전 관리는 `Chart.yaml` 파일 내의 `version 필드`를 �
 
 ---
 
-1. dependencies 업데이트
+>Minikube 기준 M1 환경에서의 가이드 입니다.
+
+Minikube에서 Ingress 컨트롤러를 활성화해야 합니다. 
+
+```bash
+minikube addons enable ingress
+```
+
+dependencies 업데이트
 
 ```bash
 helm dependency update ./plog_chart
@@ -44,4 +52,35 @@ helm dependency update ./plog_chart
 
 ```bash
 helm install [RELEASE_NAME] ./plog_chart
+```
+
+3. Ingress 설정
+
+```yaml
+ingress:
+  enabled: true
+  hosts:
+    - host: plog.ingress
+```
+이미 활성화는 해두었습니다.
+
+4. 호스트 파일 설정
+
+minikube ip 명령을 실행하여 Minikube 클러스터의 IP 주소를 얻습니다
+
+```bash
+minikube ip
+```
+
+5.Dns 설정
+3번에서의 
+
+```yaml
+hosts:
+    - host: plog.ingress
+```
+6. local dns에 plog.ingress를 dns 설정해줘야 합니다.
+
+```bash
+echo "$(minikube ip) plog.local" | sudo tee -a /etc/hosts
 ```
