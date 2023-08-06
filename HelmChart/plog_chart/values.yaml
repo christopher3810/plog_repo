@@ -1,0 +1,167 @@
+replicaCount: 1
+
+# 사용할 도커 이미지의 정보 설정
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+#private Docker registry에서 이미지를 가져오는데 사용할 secret의 목록.
+imagePullSecrets: []
+
+#헬름 차트의 이름을 재정의
+nameOverride: ""
+fullnameOverride: ""
+
+# 쿠버네티스 서비스 계정 설정
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+#  파드에 추가할 어노테이션
+podAnnotations: {}
+
+# 파드 또는 컨테이너 보안 컨텍스트
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+#쿠버네티스 서비스 설정
+service:
+  type: ClusterIP
+  port: 80
+
+#인그레스 리소스 설정.
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+#파드가 사용할 수 있는 자원(CPU, 메모리 등)의 양을 설정
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+#스케줄링 설정을 위한 노드 선택
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+# MongoDB 서비스에 대한 설정
+mongodb:
+  image:
+    repository: mongo                       # MongoDB 이미지 저장소
+    tag: latest                            # MongoDB 이미지 태그
+  service:
+    port: 27017                            # MongoDB 서비스 포트
+  persistence: {{- include "common.persistence" . | nindent 4 }}  # 영속성 세부사항, 공통 영속성 세부사항 재사용
+  mongodbUsername: mongo                   # MongoDB 사용자명
+  mongodbPassword: 1234                    # MongoDB 비밀번호
+  mongodbDatabase: my_database             # MongoDB 데이터베이스 이름
+  securityContext: {{- include "common.securityContext" . | nindent 4 }}  # 보안 컨텍스트 세부사항, 공통 보안 컨텍스트 세부사항 재사용
+  networkPolicy: {{- include "common.networkPolicy" . | nindent 4 }}  # 네트워크 정책 세부사항, 공통 네트워크 정책 세부사항 재사용
+  livenessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - mongo --eval "db.adminCommand('ping')" # MongoDB에 특정된 liveness probe
+  readinessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - mongo --eval "db.adminCommand('ping')" # MongoDB에 특정된 readiness probe
+    initialDelaySeconds: 5
+    timeoutSeconds: 3
+
+# Redis 서비스에 대한 설정
+redis:
+  image:
+    repository: redis                       # Redis 이미지 저장소
+    tag: latest                            # Redis 이미지 태그
+  service:
+    port: 6379                             # Redis 서비스 포트
+  persistence: {{- include "common.persistence" . | nindent 4 }}  # 영속성 세부사항, 공통 영속성 세부사항 재사용
+  redisPassword: 1234                      # Redis 비밀번호
+  securityContext: {{- include "common.securityContext" . | nindent 4 }}  # 보안 컨텍스트 세부사항, 공통 보안 컨텍스트 세부사항 재사용
+  networkPolicy: {{- include "common.networkPolicy" . | nindent 4 }}  # 네트워크 정책 세부사항, 공통 네트워크 정책 세부사항 재사용
+  livenessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - redis-cli ping                     # Redis에 특정된 liveness probe
+  readinessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - redis-cli ping                     # Redis에 특정된 readiness probe
+    initialDelaySeconds: 5
+    timeoutSeconds: 3
+
+# Vault 서비스에 대한 설정
+vault:
+  image:
+    repository: vault                      # Vault 이미지 저장소
+    tag: latest                            # Vault 이미지 태그
+  service:
+    port: 8200                             # Vault 서비스 포트
+  persistence: {{- include "common.persistence" . | nindent 4 }}  # 영속성 세부사항, 공통 영속성 세부사항 재사용
+  securityContext: {{- include "common.securityContext" . | nindent 4 }}  # 보안 컨텍스트 세부사항, 공통 보안 컨텍스트 세부사항 재사용
+  networkPolicy: {{- include "common.networkPolicy" . | nindent 4 }}  # 네트워크 정책 세부사항, 공통 네트워크 정책 세부사항 재사용
+  injector:
+    enabled: true
+  livenessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - vault status -tls-skip-verify      # Vault에 특정된 liveness probe
+  readinessProbe:
+    exec:
+      command:
+      - sh
+      - -c
+      - vault status -tls-skip-verify      # Vault에 특정된 readiness probe
+    initialDelaySeconds: 5
+    timeoutSeconds: 3
