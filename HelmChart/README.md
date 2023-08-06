@@ -42,13 +42,13 @@ Minikube에서 Ingress 컨트롤러를 활성화해야 합니다.
 minikube addons enable ingress
 ```
 
-dependencies 업데이트
+1. dependencies 업데이트
 
 ```bash
 helm dependency update ./plog_chart
 ```
 
-2. Helm 차트 설치
+2. Helm 차트 install
 
 ```bash
 helm install [RELEASE_NAME] ./plog_chart
