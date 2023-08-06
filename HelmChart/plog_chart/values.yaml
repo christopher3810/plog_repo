@@ -85,11 +85,6 @@ affinity: {}
 
 # PostgreSQL 서비스에 대한 설정
 postgresql:
-  image:
-    repository: postgres
-    tag: latest
-  service:
-    port: 5432
   persistence:
     enabled: true
     size: 1Gi
@@ -117,11 +112,6 @@ postgresql:
 
 ## MongoDB 서비스에 대한 설정
 mongodb:
-  image:
-    repository: mongo
-    tag: latest
-  service:
-    port: 27017
   persistence:
     enabled: true
     size: 1Gi
@@ -149,11 +139,6 @@ mongodb:
 
 # Redis 서비스에 대한 설정
 redis:
-  image:
-    repository: redis
-    tag: latest
-  service:
-    port: 6379
   persistence:
     enabled: true
     size: 1Gi
@@ -179,11 +164,6 @@ redis:
 
 # Vault 서비스에 대한 설정
 vault:
-  image:
-    repository: vault
-    tag: latest
-  service:
-    port: 8200
   persistence:
     enabled: true
     size: 1Gi

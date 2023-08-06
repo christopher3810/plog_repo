@@ -1,0 +1,15 @@
+dependencies:
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.7.1
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 13.16.0
+- name: redis
+  repository: https://charts.bitnami.com/bitnami
+  version: 17.0.10
+- name: vault
+  repository: https://helm.releases.hashicorp.com
+  version: 0.25.0
+digest: sha256:6f4891004101319bc8e69d39cd838de3f5e15a778cc8e7bde692fa0d2750bf21
+generated: "2023-08-06T20:46:42.107451+09:00"

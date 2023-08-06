@@ -42,6 +42,13 @@ Minikube에서 Ingress 컨트롤러를 활성화해야 합니다.
 minikube addons enable ingress
 ```
 
+그리고 helm repository 도 추가해야 합니다.
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add hashicorp https://helm.releases.hashicorp.com
+helm repo update
+```
+
 1. dependencies 업데이트
 
 ```bash
