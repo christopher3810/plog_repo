@@ -18,7 +18,7 @@ Helm 차트의 버전 관리는 `Chart.yaml` 파일 내의 `version 필드`를 �
 
 이는 `SemVer 2 (Semantic Versioning 2)`를 따르며, 주요 변경 사항이 발생할 때마다 이 버전 번호를 업데이트해야 합니다.
 
-버전 번호는 MAJOR.MINOR.PATCH의 형태로 이루어져 있으며, 각각의 세그먼트는 다음을 의미합니다:
+버전 번호는 MAJOR.MINOR.PATCH의 형태로 이루어져 있으며, 각각의 세그먼트는 다음을 의미합니다.
 
 `MAJOR`: 호환되지 않는 API 변경 사항이 생겼을 때 증가.
 
@@ -83,11 +83,11 @@ hosts:
 echo "$(minikube ip) plog.local" | sudo tee -a /etc/hosts
 ```
 
-### mongodb 설정에 대해서
+### m1 환경에서 mongodb 설정에 대해서
 
 ---
 
->m1 mac 환경에서 bitnami/mongd 를 지원하지 않아 보임
+>m1 mac 환경에서 bitnami/mongd 를 지원하지 않는 것 같습니다.
 
 ```yaml
 #values.yaml
@@ -105,10 +105,10 @@ mongodb:
     fsGroup: 999
 ```
 
-arm64 지원 이미지를 별도 기입.
+arm64 지원 이미지를 별도 기입해야 했습니다.
 
-persistence /moutPath 경로는 의존적이라 정해진 대로 기입 해야 하는 것 같음.
+persistence /moutPath 경로는 의존적이라 정해진 대로 기입 해줍니다.
 
-securityContext 에서 fsGroup 정보를 999 로 줘서 pvc 에서 초기 mongo 구동시 Lock.file을 생성 할 수 있도록함.
+securityContext 에서 fsGroup 정보를 999 로 줘서 pvc 에서 초기 mongo 구동시 Lock.file을 생성 할 수 있도록합니다.
 
-추후 window 환경시 해당 설정 값들을 지우고 그냥 chart.yaml 에서 의존성 받아서 실행하면 구동 될것 같음.
+추후 window 환경시 해당 설정 값들을 지우고 그냥 chart.yaml 에서 의존성 받아서 실행하면 구동 될것 같습니다.
