@@ -92,6 +92,7 @@ postgresql:
   postgresqlPassword: 1234
   securityContext:
     runAsUser: 999
+    fsGroup: 999
   networkPolicy:
     enabled: true
   livenessProbe:
@@ -112,7 +113,11 @@ postgresql:
 
 ## MongoDB 서비스에 대한 설정
 mongodb:
+  image:
+    repository: mongo
+    tag: 6.0.4-jammy
   persistence:
+    mountPath: /data/db
     enabled: true
     size: 1Gi
   mongodbUsername: mongo
@@ -120,6 +125,7 @@ mongodb:
   mongodbDatabase: my_database
   securityContext:
     runAsUser: 999
+    fsGroup: 999
   networkPolicy:
     enabled: true
   livenessProbe:
@@ -145,6 +151,7 @@ redis:
   redisPassword: 1234
   securityContext:
     runAsUser: 999
+    fsGroup: 999
   networkPolicy:
     enabled: true
   livenessProbe:
@@ -169,6 +176,7 @@ vault:
     size: 1Gi
   securityContext:
     runAsUser: 999
+    fsGroup: 999
   networkPolicy:
     enabled: true
   injector:

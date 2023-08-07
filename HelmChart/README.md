@@ -82,3 +82,33 @@ hosts:
 ```bash
 echo "$(minikube ip) plog.local" | sudo tee -a /etc/hosts
 ```
+
+### mongodb 설정에 대해서
+
+---
+
+>m1 mac 환경에서 bitnami/mongd 를 지원하지 않아 보임
+
+```yaml
+#values.yaml
+mongodb:
+  image:
+    repository: mongo
+    tag: 6.0.4-jammy
+  persistence:
+    mountPath: /data/db
+
+  #...
+
+  securityContext:
+    runAsUser: 999
+    fsGroup: 999
+```
+
+arm64 지원 이미지를 별도 기입.
+
+persistence /moutPath 경로는 의존적이라 정해진 대로 기입 해야 하는 것 같음.
+
+securityContext 에서 fsGroup 정보를 999 로 줘서 pvc 에서 초기 mongo 구동시 Lock.file을 생성 할 수 있도록함.
+
+추후 window 환경시 해당 설정 값들을 지우고 그냥 chart.yaml 에서 의존성 받아서 실행하면 구동 될것 같음.
