@@ -14,9 +14,9 @@ FD5: Tag -> {Name}
 
 FD6: PostTag -> {PostID, TagID}
 
-FD7: Content -> {TextData}
+FD7: Content -> {PostID, TextData}
 
-FD8: Attachment -> {AttachmentData}
+FD8: Attachment -> {PostID, AttachmentData}
 
 FD9: Emoji_Reaction -> {PostID, UserID, Emoji}
 
