@@ -1,12 +1,28 @@
 <p align="center">
-  <img width="300" alt="plog_erd" src="https://github.com/christopher3810/plog_repo/assets/61622657/9707f5bf-1470-4c19-a779-1d4089b1a3a1">
+  <img width="300" alt="plog_erd" src="https://github.com/christopher3810/plog_repo/assets/61622657/565160d5-e31c-4694-9488-a6656d397859">
 </p>
 
-![GitHub stars](https://img.shields.io/github/stars/christopher3810/plog_repo?style=social) ![GitHub issues](https://img.shields.io/github/issues/christopher3810/plog_repo) ![GitHub pull requests](https://img.shields.io/github/issues-pr/christopher3810/plog_repo) ![GitHub](https://img.shields.io/github/license/christopher3810/plog_repo)
+<h2 align="center">Plog</h2>
 
+<p align="center">
+  Your Personalized Blog.<br>
+</p>
 
-# plog_repo
->private for public 
+<p align="center">
+  <!-- 기본 뱃지들 -->
+  <img src="https://img.shields.io/github/stars/christopher3810/plog_repo?style=social">
+  <img src="https://img.shields.io/github/issues/christopher3810/plog_repo">
+  <img src="https://img.shields.io/github/issues-pr/christopher3810/plog_repo">
+  <img src="https://img.shields.io/github/license/christopher3810/plog_repo">
+</p>
+
+<p align="center">
+  <!-- 추가적인 뱃지들 -->
+  <img src="https://img.shields.io/github/last-commit/christopher3810/plog_repo">
+  <img src="https://img.shields.io/github/forks/christopher3810/plog_repo?style=social">
+  <img src="https://img.shields.io/github/languages/count/christopher3810/plog_repo">
+  <img src="https://img.shields.io/github/release/christopher3810/plog_repo">
+</p>
 
 ### 주요 기능
 
