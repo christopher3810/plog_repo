@@ -1,16 +1,16 @@
 spring:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432
+    url: r2dbc:postgresql://${MINIKUBE_IP}:32017
     username: postgres
     password: 1234
   data:
     mongodb:
-      uri: mongodb://localhost:27017/plog_files
+      uri: mongodb://${MINIKUBE_IP}:32018/plog_files
     redis:
-      host: localhost
+      host: ${MINIKUBE_IP}
       port: 6379
   datasource:
-    url: jdbc:postgresql://localhost:5432
+    url: jdbc:${MINIKUBE_IP}://localhost:32017
     username: postgres
     password: 1234
   flyway:
