@@ -115,3 +115,35 @@ Helm
   V
 k9s
 ```
+
+### Minikube 초기 설정
+---
+
+**Docker 드라이버 설정**
+
+Minikube를 Docker 드라이버와 함께 실행하려면 다음 명령을 실행.
+
+```bash
+minikube config set driver docker
+```
+
+**리소스 할당**:
+
+메모리를 4GB
+
+```bash
+minikube config set memory 4096
+```
+
+CPU 코어를 4개로 설정.
+
+```bash
+minikube config set cpus 4
+```
+
+
+디스크 크기를 40GB로 설정.
+
+```bash
+minikube config set disk-size 40g
+```
