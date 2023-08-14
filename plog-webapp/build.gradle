@@ -34,7 +34,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+	//implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
 	// https://mvnrepository.com/artifact/org.flywaydb/flyway-core
 	implementation 'org.flywaydb:flyway-core:9.20.0'
 	compileOnly 'org.projectlombok:lombok'

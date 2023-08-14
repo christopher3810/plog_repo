@@ -1,3 +1,6 @@
 .idea
 plog-webapp/.DS_Store
 .DS_Store
+logs
+plog-webapp/.gradle
+plog-webapp/build
