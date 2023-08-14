@@ -15,13 +15,6 @@
 ```bash
 kubectl apply -f databases-nodeport.yaml
 ```
-2.Minikube IP 주소 환경 변수로 설정
-
-Minikube의 IP 주소를 환경 변수로 등록.
-
-```bash
-export MINIKUBE_IP=$(minikube ip)
-```
 
 application.yaml 값이
 
@@ -38,7 +31,7 @@ spring:
       host: ${MINIKUBE_IP}
       port: 6379
   datasource:
-    url: jdbc:${MINIKUBE_IP}://localhost:32017
+    url: jdbc:postgresql://${MINIKUBE_IP}:32017
     username: postgres
     password: 1234
   flyway:
@@ -46,4 +39,6 @@ spring:
     locations: classpath:db/migration
 ```
 
-위와 같아 환경 변수를 참조
+위와 같아 
+
+intellij 어플리케이션 실행시 환경변수 MINIKUBE_IP를 추가해서 실행하는 방법으로 가능.
