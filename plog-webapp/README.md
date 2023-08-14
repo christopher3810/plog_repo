@@ -22,3 +22,28 @@ Minikube의 IP 주소를 환경 변수로 등록.
 ```bash
 export MINIKUBE_IP=$(minikube ip)
 ```
+
+application.yaml 값이
+
+```yaml
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://${MINIKUBE_IP}:32017
+    username: postgres
+    password: 1234
+  data:
+    mongodb:
+      uri: mongodb://${MINIKUBE_IP}:32018/plog_files
+    redis:
+      host: ${MINIKUBE_IP}
+      port: 6379
+  datasource:
+    url: jdbc:${MINIKUBE_IP}://localhost:32017
+    username: postgres
+    password: 1234
+  flyway:
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+```
+
+위와 같아 환경 변수를 참조
