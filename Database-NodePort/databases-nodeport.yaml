@@ -1,0 +1,44 @@
+# For PostgreSQL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-postgresql
+spec:
+  type: NodePort
+  ports:
+  - port: 5432
+    nodePort: 32017
+    targetPort: 5432
+  selector:
+    app.kubernetes.io/name: postgresql
+
+# For MongoDB
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-mongodb
+spec:
+  type: NodePort
+  ports:
+  - port: 27017
+    nodePort: 32018
+    targetPort: 27017
+  selector:
+    app.kubernetes.io/name: mongodb
+
+# For Redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: np-redis
+spec:
+  type: NodePort
+  ports:
+  - port: 6379
+    nodePort: 32019
+    targetPort: 6379
+  selector:
+    app.kubernetes.io/name: redis
