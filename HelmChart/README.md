@@ -52,13 +52,16 @@ helm repo update
 1. dependencies 업데이트
 
 ```bash
-helm dependency update ./plog_chart
+helm dependency update ./${helmChartFolderPath}
 ```
 
 2. Helm 차트 install
 
+`helm install` 명령은 차트 디렉터리나 패키지된 `.tgz` 파일을 대상으로 함.
+
+
 ```bash
-helm install [RELEASE_NAME] ./plog_chart
+helm install [RELEASE_NAME] ./${helmChartFolderPath}
 ```
 
 3. Ingress 설정
