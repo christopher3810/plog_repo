@@ -100,12 +100,12 @@ Minikube Cluster
   |
   | manages
   V
-----------------------------------------------
-|            |          |          |        
-V            V          V          V        
-Postgres   MongoDB   Redis       Vault        
-(Command)  (Event)   (Cache)     (Secret Mgmt) 
-----------------------------------------------
+---------------------------
+|            |          |     
+V            V          V     
+Postgres   MongoDB   Redis         
+(Command)  (Event)   (Cache)
+----------------------------
   |
   | managed via
   V
@@ -147,3 +147,11 @@ minikube config set cpus 4
 ```bash
 minikube config set disk-size 40g
 ```
+
+>**NOTE**
+>Hasicorp Vault 라이센스가 BSL 로 변경되었다. \\
+>토이프로젝트인 경우에 내부 라이센스 조항을 봐서 판단을 해야 하지만. \
+>그냥 과감하게 로컬 클러스터 구조에서 제거하기로 결정,
+
+https://infisical.com/blog/hashicorp-new-bsl-license
+

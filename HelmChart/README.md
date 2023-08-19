@@ -115,3 +115,11 @@ persistence /moutPath 경로는 의존적이라 정해진 대로 기입 해줍�
 securityContext 에서 fsGroup 정보를 999 로 줘서 pvc 에서 초기 mongo 구동시 Lock.file을 생성 할 수 있도록합니다.
 
 추후 window 환경시 해당 설정 값들을 지우고 그냥 chart.yaml 에서 의존성 받아서 실행하면 구동 될것 같습니다.
+
+
+>**NOTE**
+>Hasicorp Vault 라이센스가 BSL 로 변경되었다. \\
+>토이프로젝트인 경우에 내부 라이센스 조항을 봐서 판단을 해야 하지만. \
+>그냥 과감하게 로컬 클러스터 구조에서 제거하기로 결정,
+
+https://infisical.com/blog/hashicorp-new-bsl-license
