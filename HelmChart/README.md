@@ -118,7 +118,7 @@ securityContext 에서 fsGroup 정보를 999 로 줘서 pvc 에서 초기 mongo 
 
 
 >**NOTE**
->Hasicorp Vault 라이센스가 BSL 로 변경되었다. \\
+>Hasicorp Vault 라이센스가 BSL 로 변경되었다. \
 >토이프로젝트인 경우에 내부 라이센스 조항을 봐서 판단을 해야 하지만. \
 >그냥 과감하게 로컬 클러스터 구조에서 제거하기로 결정,
 
