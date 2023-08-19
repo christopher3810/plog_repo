@@ -33,6 +33,3 @@ dependencies:
   - name: redis
     version: 17.0.10
     repository: https://charts.bitnami.com/bitnami
-  - name: vault
-    version: 0.25.0
-    repository: https://helm.releases.hashicorp.com
