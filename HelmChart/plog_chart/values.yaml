@@ -90,6 +90,7 @@ postgresql:
     size: 1Gi
   postgresqlUsername: postgres
   postgresqlPassword: 1234
+  postgresqlDatabase: plog
   securityContext:
     runAsUser: 999
     fsGroup: 999
@@ -148,7 +149,9 @@ redis:
   persistence:
     enabled: true
     size: 1Gi
-  redisPassword: 1234
+  usePassword: true
+  password: "1234"
+  username: "redis"
   securityContext:
     runAsUser: 999
     fsGroup: 999
@@ -166,32 +169,5 @@ redis:
       - sh
       - -c
       - redis-cli ping
-    initialDelaySeconds: 5
-    timeoutSeconds: 3
-
-# Vault 서비스에 대한 설정
-vault:
-  persistence:
-    enabled: true
-    size: 1Gi
-  securityContext:
-    runAsUser: 999
-    fsGroup: 999
-  networkPolicy:
-    enabled: true
-  injector:
-    enabled: true
-  livenessProbe:
-    exec:
-      command:
-      - sh
-      - -c
-      - vault status -tls-skip-verify
-  readinessProbe:
-    exec:
-      command:
-      - sh
-      - -c
-      - vault status -tls-skip-verify
     initialDelaySeconds: 5
     timeoutSeconds: 3
